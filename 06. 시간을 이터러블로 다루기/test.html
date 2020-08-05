@@ -1,0 +1,45 @@
+<!-- <script>
+function solution(p) {
+    // 올바른 괄호 문자열일 경우 리턴 
+    if(findBalanceString(p)) return p
+
+    // u 찾기 
+    let split = findU(p)
+    let u = p.substr(0, split+ 1)
+    let v = p.substr(split + 1)
+    console.log(u,'     ', v);
+
+}
+
+const findBalanceString = p => {
+    // 1. 올바른 괄호 문자열 찾기 - stack
+    let stack = []
+    let flag = true
+    for(const c of p) {
+        if(c === '(') stack.push('(')
+        else {
+            if(stack.length < 1) {
+                flag = false
+                break
+            } else stack.pop()
+        }
+    }
+    if(stack.length > 0) flag = false
+    return flag
+}
+
+const findU = p => {
+    let flag = false
+    let Ocnt = 0
+    let CCnt = 0
+    let i = -1
+    while(i++ < p.length) {
+        if(p[i] === '(') Ocnt++
+        else CCnt++
+        if(Ocnt === CCnt) break
+    }
+    return i
+}
+
+</script> -->
+

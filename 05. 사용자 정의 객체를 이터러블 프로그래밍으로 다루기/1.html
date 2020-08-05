@@ -38,6 +38,7 @@ console.clear();
 2. Model, Collection
 
 <script>
+  // 사용자정의 객체 
 class Model {
   constructor(attrs = {}) {
     this._attrs = attrs;
@@ -61,7 +62,10 @@ class Collection {
     this._models.push(model);
     return this;
   }
-  *[Symbol.iterator]() {
+  // 기본 symbol 메서드를 생성 : 가장 어울리는 것을 뽑아주면 됨 
+  // 제너레이터로 선언 
+  // 사용자 정의 객체를 어떻게 이터러블화 할 것인가. 사용자 정의 객체의 어떤 메소드를 실행할 때 이미 잘 만들어져있는 이터러블 함수들의 조합으로 구현 해나가기 ==> 메소드를 함수형으로 구현할 때 생각할 점 
+    *[Symbol.iterator]() {
     yield *this._models;
   }
 }
